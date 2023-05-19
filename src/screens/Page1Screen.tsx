@@ -5,8 +5,8 @@ import { StackScreenProps } from '@react-navigation/stack'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 
 // interface Props extends StackScreenProps<any, any>{}
-// type Props = StackScreenProps<any, any>
-type Props = DrawerScreenProps<any, any>
+type Props = StackScreenProps<any, any>
+// type Props = DrawerScreenProps<any, any>
 
 export const Page1Screen = ({navigation}: Props) => {
 	
@@ -23,7 +23,6 @@ export const Page1Screen = ({navigation}: Props) => {
 		// })
 	}, [])
   
-  
 	return (
 		<View style={style.globalMargin}>
 			<Text style={style.title}>
@@ -35,7 +34,14 @@ export const Page1Screen = ({navigation}: Props) => {
 				onPress={() => navigation.navigate('Page2Screen')}
 			/>
 
-			<Text>Navigate with arguments</Text>
+			<Text style={{
+				marginVertical: 20,
+				fontSize: 20,
+				// marginLeft: 5
+			}}>
+        Navigate with arguments
+			</Text>
+
 			<View style={{flexDirection: 'row'}}>
 				<TouchableOpacity
 					style={{
