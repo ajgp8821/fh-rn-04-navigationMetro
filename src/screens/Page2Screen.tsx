@@ -1,18 +1,30 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useEffect } from 'react'
+import { Button, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/core'
+import { style } from '../theme/appTheme'
 
 export const Page2Screen = () => {
+
+	const navigator = useNavigation()
+
+	useEffect(() => {
+		navigator.setOptions({
+			title: 'Page 2',
+			headerBackTitle: 'Back'
+		})
+	}, [])
+  
+
 	return (
-		<View style={styles.container}>
-			<Text>
+		<View style={style.globalMargin}>
+			<Text style={style.title}>
         Page2Screen
 			</Text>
+
+			<Button
+				title='Go Pag 3'
+				onPress={() => navigator.navigate('Page3Screen')}
+			/>
 		</View>
 	)
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	}
-})
